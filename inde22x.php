@@ -1,32 +1,30 @@
 <html>
 <head> 
-	<meta charset="UTF-8"> 
-	<title>CLINICAS TACNA</title>
+	<meta charset="UTF-8">
+	<title>Mercados de Tacna</title>
 	<link rel="stylesheet" href="css/leaflet.css" />
 	
 	<style> 
  
  	 body {
-            padding:5;
-            margin:10;
-                                 }
-        html, 
-        body, #map {
-            height: 98.5%;
-            width: 99.5%;
-            box-shadow:  3px 3px 3px 3px  #008000
-           
+            padding: 0;
+            margin: 0;
         }
-        .leaflet-popup-content-wrapper {
-    width: 0px;
-	height: 0px;
-		}
-	iframe {
-	width:0px;
-	height:0px;
-		}
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+        }
 		
-	 	</style> 
+	.leaflet-popup-content-wrapper {
+    width: 420px;
+	height: 400px;
+	}
+	
+	iframe {
+	width: 400px;
+	height: 350px;
+	}
+ 	</style> 
 </head>  
 	<body>
 	<script src="js/leaflet.js"></script>
@@ -49,7 +47,6 @@
 	var osm = new L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <ahref="http://osm.org/copyright"> OpenStreetMap</a> contributor'
 }).addTo(map);
-
 L.control.scale().addTo(map);
 L.marker([-18.014424, -70.2517890], {draggable: true}).addTo(map);
 
@@ -57,12 +54,12 @@ L.marker([-18.014424, -70.2517890], {draggable: true}).addTo(map);
 	//*****************LISTA DE SERVICIOS*******************************//
 		
 	var wmsGeneral = L.tileLayer.wms("http://localhost:8080/geoserver/proyecto_webgis/wms?", {
-	   layers: "proyecto_webgis:proyecto_webgis:clinicas_tacna,proyecto_webgis:distritos_tacna,proyecto_webgis:provincias_tacna",
+	   layers: "proyecto_webgis:departamento,proyecto_webgis:provincias,proyecto_webgis:distritos,proyecto_webgis:mercados",
 	   //gisweb:Tacna
 	   format: 'image/png',
 	   transparent: true,
 	   version: '1.1.1',
-	   attribution: ""
+	   attribution: "SENCICO"
 	}).addTo(map);
 	
 	</script>
